@@ -6,8 +6,9 @@ This was a wedding website I built for my cousin's wedding. Originally it began 
 
 The site was built in Laravel, with designs inspired by the wedding invitations. Have a look at the public link below:
 
-Website: <a href="http://meetthewhites.ca">meetthewhites.ca</a>
+*Click image below for website:*
 
-<img src="https://raw.githubusercontent.com/strakers/meetthewhites/master/public/images/thumbnail.jpg">
+<a href="http://meetthewhites.ca">
+<img src="https://raw.githubusercontent.com/strakers/meetthewhites/master/public/images/thumbnail.jpg"></a>
 
 
