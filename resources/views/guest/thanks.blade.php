@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="bordered-wrapper first">
-<div class="container banner" data-image="{{ asset('images/gallery/meetthewhites_churchsit-min.jpg') }}" data-pos="45% 40%" data-top="46%">
+<div class="container banner" data-image="{{ asset('images/banners/008_AD5I6768mk-min.jpg') }}" data-pos="46% 50%">
     <div class="content title">
         From Us to You
         <div class="sub-title"></div>

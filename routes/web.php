@@ -58,6 +58,7 @@ Route::get('guest/media/more', 'GuestController@mediaGram');
 Route::get('guest/proposal', 'GuestController@proposal');
 Route::get('guest/story', 'GuestController@story');
 Route::get('guest/crew', 'GuestController@crew');
+Route::get('guest/recap', 'GuestController@recap');
 Route::get('guest/thanks', 'GuestController@thanks');
 Route::get('guest/vendors', 'GuestController@vendors');
 Route::get('guest/share', 'GuestController@share');
@@ -87,7 +88,6 @@ Route::get('/db/seed', function () { db_seed(); });
 Route::get('/db/migrate/{seed?}', function ($seed = null) { db_migrate($seed); });
 Route::get('/db/rollback', function () { db_rollback(); });
 Route::get('/db/refresh/{seed?}', function ($seed = null) { db_refresh($seed); });
-
 Route::get('/ini', function () {
     return phpinfo();
 });
