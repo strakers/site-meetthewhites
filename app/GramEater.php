@@ -20,7 +20,7 @@ class GramEater {
         $this->raw = $this->request( 'https://www.instagram.com/explore/tags/' . $tag . '/?__a=1&count=5' );
         $data = json_decode($this->raw);
         if( $data ){
-            $this->data = $data->tag ;
+            $this->data = $data->tag ?? $data->hashtag ?? new \stdClass();
         }
         return $this->raw;
     }
@@ -128,7 +128,6 @@ class GramEater {
                     /*foreach( $topposts as $item ){
                         if( in_array( $item->node->id, $exclude_list ) ) continue;
                         if( in_array( $item->node->id, $this->processed_list ) ) continue;
-
                         $list[] = [
                             'id' => $item->node->id,
                             'thumbnail' => $item->node->thumbnail_src,
@@ -142,9 +141,7 @@ class GramEater {
                             'timestamp' => $item->node->taken_at_timestamp,
                             'height' => $item->node->dimensions->height
                         ];
-
                         array_push($this->processed_list, $item->node->id);
-
                     }*/
 
                     $this->extra = [
@@ -198,7 +195,6 @@ class GramEater {
             /*foreach( $topposts as $item ){
                 if( in_array( $item->node->id, $exclude_list ) ) continue;
                 if( in_array( $item->node->id, $this->processed_list ) ) continue;
-
                 $list[] = [
                     'id' => $item->node->id,
                     'thumbnail' => $item->node->thumbnail_src,
@@ -211,7 +207,6 @@ class GramEater {
                     ],
                     'height' => $item->node->dimensions->height
                 ];
-
                 array_push($this->processed_list, $item->node->id);
             }*/
 

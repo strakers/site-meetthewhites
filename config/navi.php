@@ -19,6 +19,11 @@ return [
             'link' => '/proposal'
         ],
         [
+            'name' => 'recap',
+            'label' => 'Recap',
+            'link' => '/recap'
+        ],
+        [
             'name' => 'crew',
             'label' => 'Crew',
             'link' => '/crew'
@@ -32,12 +37,12 @@ return [
             'name' => 'venue',
             'label' => 'Venue',
             'link' => '/venue'
-        ],*/
+        ],*//*
         [
             'name' => 'media',
             'label' => 'Media',
             'link' => '/media'
-        ],
+        ],*/
         [
             'name' => 'gallery',
             'label' => 'Gallery',

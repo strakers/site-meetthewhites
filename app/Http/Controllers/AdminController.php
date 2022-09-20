@@ -60,10 +60,9 @@ class AdminController extends Controller
 
 
     public function show(){
-
-        $invites = Invite::get();
-        $guests = InviteGuest::get();
-        $responded = InviteGuest::responded()->get();
+        $invites = Invite::whereNotNull('id')->get();
+        $guests = InviteGuest::whereNotNull('id')->get();
+        $responded = InviteGuest::whereNotNull('id')->responded()->get();
         return view('admin.dashboard', [
             'section_title' => 'Dashboard',
             'invites' => $invites,
@@ -78,7 +77,7 @@ class AdminController extends Controller
 
     public function listInvites(){
 
-        $invites = Invite::withTrashed()->get();
+        $invites = Invite::whereNotNull('id')->withTrashed()->get();
 
         return view('admin.invites',[
             'section_title' => 'View Invites',
@@ -87,7 +86,7 @@ class AdminController extends Controller
     }
 
     public function addInvites(){
-        $groups = Group::withTrashed()->orderBy('deleted_at', 'asc')->get();
+        $groups = Group::whereNotNull('id')->withTrashed()->orderBy('deleted_at', 'asc')->get();
         return view('admin.invites-add',[
             'section_title' => 'Add Invite',
             'invite' => null,
@@ -98,7 +97,7 @@ class AdminController extends Controller
     public function editInvites($invite){
 
         $invite = Invite::find($invite);
-        $groups = Group::withTrashed()->orderBy('deleted_at', 'asc')->get();
+        $groups = Group::whereNotNull('id')->withTrashed()->orderBy('deleted_at', 'asc')->get();
 
         return view('admin.invites-add',[
             'section_title' => 'Edit Invite',
@@ -120,7 +119,7 @@ class AdminController extends Controller
 
     public function restoreInvites($invite){
 
-        $invite = Invite::withTrashed()->find($invite);
+        $invite = Invite::whereNotNull('id')->withTrashed()->find($invite);
         if($invite) $invite->restore();
 
         return redirect()->to('admin/invites');
@@ -226,8 +225,8 @@ class AdminController extends Controller
 
     public function listRSVPs(){
 
-        $rsvps = InviteGuest::orderBy('is_attending','DESC')->orderBy('id','ASC')->get();
-        $responded = InviteGuest::responded()->orderBy('is_attending','DESC')->orderBy('id','ASC')->get();
+        $rsvps = InviteGuest::whereNotNull('id')->orderBy('is_attending','DESC')->orderBy('id','ASC')->get();
+        $responded = InviteGuest::whereNotNull('id')->responded()->orderBy('is_attending','DESC')->orderBy('id','ASC')->get();
         $meta = Metafield::find(1);
 
         return view('admin.rsvps',[
@@ -313,7 +312,7 @@ class AdminController extends Controller
 
     public function listSongs(){
 
-        $songs = Song::withTrashed()->orderBy('artist')->orderBy('title')->get();
+        $songs = Song::whereNotNull('id')->withTrashed()->orderBy('artist')->orderBy('title')->get();
 
         return view('admin.songs',[
             'section_title' => 'View Songs',
@@ -322,7 +321,7 @@ class AdminController extends Controller
     }
 
     public function exportSongs(){
-        $songs = Song::withTrashed()->orderBy('artist')->orderBy('title')->get();
+        $songs = Song::whereNotNull('id')->withTrashed()->orderBy('artist')->orderBy('title')->get();
         $headers = [ 'Artist(s)', 'Title' ];
         $list = [];
 
@@ -352,8 +351,8 @@ class AdminController extends Controller
 
     public function listMetas(){
 
-        $meta = Metafield::withTrashed()->orderBy('deleted_at', 'asc')->get();
-        $types = MetafieldType::withTrashed()->orderBy('deleted_at', 'asc')->get();
+        $meta = Metafield::whereNotNull('id')->withTrashed()->orderBy('deleted_at', 'asc')->get();
+        $types = MetafieldType::whereNotNull('id')->withTrashed()->orderBy('deleted_at', 'asc')->get();
 
         return view('admin.meta',[
             'section_title' => 'View RSVP Meta Fields',
@@ -363,7 +362,7 @@ class AdminController extends Controller
     }
 
     public function addMetas(){
-        $types = MetafieldType::withTrashed()->orderBy('deleted_at', 'asc')->get();
+        $types = MetafieldType::whereNotNull('id')->withTrashed()->orderBy('deleted_at', 'asc')->get();
         return view('admin.meta-add',[
             'section_title' => 'Add Meta Field',
             'metadata' => null,
@@ -374,7 +373,7 @@ class AdminController extends Controller
     public function editMetas($meta){
 
         $meta = Metafield::find($meta);
-        $types = MetafieldType::withTrashed()->orderBy('deleted_at', 'asc')->get();
+        $types = MetafieldType::whereNotNull('id')->withTrashed()->orderBy('deleted_at', 'asc')->get();
 
         return view('admin.meta-add',[
             'section_title' => 'Edit Meta Fields',
@@ -396,7 +395,7 @@ class AdminController extends Controller
 
     public function restoreMetas($meta){
 
-        $meta = Metafield::withTrashed()->find($meta);
+        $meta = Metafield::whereNotNull('id')->withTrashed()->find($meta);
         if($meta) $meta->restore();
 
         return redirect()->to('admin/meta');
@@ -468,7 +467,7 @@ class AdminController extends Controller
     }
 
     public function showPages(){
-        $pages = Page::all();
+        $pages = Page::whereNotNull('id')->get();
         return view('admin.pages',[
             'pages' => $pages,
         ]);

@@ -67,6 +67,13 @@ class GuestController extends Controller
         ]);
     }
 
+    public function recap(){
+        $page = Page::where('slug','recap')->first();
+        return view("guest.recap",[
+            'page' => $page,
+        ]);
+    }
+
     public function rsvp(){
         $page = Page::where('slug','rsvp')->first();
         $meta = Metafield::all();
@@ -176,8 +183,8 @@ class GuestController extends Controller
     }
 
     public function share(){
-        $page = Page::where('slug','share')->first();
-        $comments = Comment::orderBy('id','DESC')->get();
+        $page = Page::whereNotNull('id')->where('slug','share')->first();
+        $comments = Comment::whereNotNull('id')->orderBy('id','DESC')->get();
         return view("guest.share",[
             'page' => $page,
             'comments' => $comments
@@ -248,7 +255,7 @@ class GuestController extends Controller
 
                 if( !$rsvp->is_named && array_key_exists('name', $response) && $response['name']){
                     // ig named Guest, return error
-                    
+
                     $rsvp->name = $response['name'] ;
                 }
 
