@@ -17,7 +17,6 @@ $images = json_decode('@yield('imagedata', '{"results":[]}')');
     <div class="grid-holder">
         <div class="grid">
             @php(dd($images))
-            test
             {{-- @foreach ($images->result as $image)
                 <div class="grid-item {{ $image->height > $image->width ? 'vertical' : 'horizontal' }}"
                     style="--img-width:{{ 301 }}; --img-height:{{ 201 }};">
