@@ -13,17 +13,18 @@
     "fruitcake/laravel-cors": "^3.0",
     "gladcodes/keygen": "^1.1",
     "imagekit/imagekit": "^3.0",
-    "laravel/framework": "^6.0",
+    "laravel/framework": "^7.0",
     "laravel/helpers": "^1.5",
-    "laravel/tinker": "~2.0"
+    "laravel/tinker": "^2.0",
+    "laravel/ui": "^2.0"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
     "mockery/mockery": "0.9.*",
-    "phpunit/phpunit": "~8.5",
+    "phpunit/phpunit": "^8.5",
     "filp/whoops": "~2.0",
-    "nunomaduro/collision": "^3.1",
-    "facade/ignition": "^1.0"
+    "nunomaduro/collision": "^4.1",
+    "facade/ignition": "^2.0"
   },
   "autoload": {
     "classmap": [
