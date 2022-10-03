@@ -14,6 +14,7 @@ use App\Songlist;
 use App\ContentBox;
 use App\Comment;
 use App\GramEater;
+use ImageKit\ImageKit;
 
 class GuestController extends Controller
 {
@@ -196,6 +197,49 @@ class GuestController extends Controller
         return redirect()->to('/');
     }
 
+    public function events(){
+        return view("guest.events",[
+            'page' => 'events',
+        ]);
+    }
+
+    public function event($event) {
+        $template = "guest.events.{$event}";
+        if(view()->exists($template)) {
+            return view($template, [
+                'page' => 'event',
+            ]);
+        }
+
+        return ['event' => $event, 'template' => $template];
+    }
+
+    public function getimages(){
+        $rootPath = 'https://ik.imagekit.io/strakez';
+        $joinPath = $rootPath . '/thewhites/kbaptism/';
+        $imageKit = new ImageKit(
+            config('imagekit.pubkey'),
+            config('imagekit.privkey'),
+            $joinPath
+        );
+
+        $collection = [];
+        $listFiles = $imageKit->listFiles();
+
+        foreach($listFiles->result as $res) {
+            $collection[] = (
+                //($rootPath . $res->filePath . '?ik-sdk-version=javascript-1.4.3&updatedAt=' . strtotime($res->updatedAt))
+                [
+                    'src' => ($rootPath . $res->filePath . '?ik-sdk-version=javascript-1.4.3&updatedAt=' . strtotime($res->updatedAt)),
+                    'orientation' => $res->height > $res->width ? 'vertical' : 'horizontal',
+                ]
+            );
+        }
+
+        //return [1,2,3];
+        return json_encode($listFiles);
+    }
+
     public function shareComments(Request $request){
         $rules = [
             'name' => 'required|min:2',
@@ -305,3 +349,5 @@ class GuestController extends Controller
         }
     }
 }
+
+
