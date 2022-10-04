@@ -48,6 +48,11 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'imagekit' => [
+            'driver' => 'local',
+            'root' => storage_path('app/imagekit'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
