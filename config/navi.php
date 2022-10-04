@@ -18,16 +18,7 @@ return [
             'label' => 'Proposal',
             'link' => '/proposal'
         ],
-        [
-            'name' => 'recap',
-            'label' => 'Recap',
-            'link' => '/recap'
-        ],
-        [
-            'name' => 'crew',
-            'label' => 'Crew',
-            'link' => '/crew'
-        ],
+
         /*[
             'name' => 'rsvp',
             'label' => 'RSVP',
@@ -43,15 +34,15 @@ return [
             'label' => 'Media',
             'link' => '/media'
         ],*/
+        // [
+        //     'name' => 'gallery',
+        //     'label' => 'Gallery',
+        //     'link' => '/gallery'
+        // ],
         [
-            'name' => 'gallery',
-            'label' => 'Gallery',
-            'link' => '/gallery'
-        ],
-        [
-            'name' => 'vendors',
-            'label' => 'Vendors',
-            'link' => '/vendors'
+            'name' => 'events',
+            'label' => 'Events',
+            'link' => '/events'
         ],
         [
             'name' => 'thanks',
