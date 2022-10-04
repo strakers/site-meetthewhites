@@ -60,7 +60,7 @@ Route::get('guest/story', 'GuestController@story');
 Route::get('guest/crew', 'GuestController@crew');
 Route::get('guest/recap', 'GuestController@recap');
 Route::get('guest/events', 'GuestController@events');
-Route::get('guest/event/{event}', 'GuestController@event');
+Route::get('guest/event/{event}', 'GuestController@event')->name('event');
 Route::get('guest/imagekit', 'GuestController@getimages');
 Route::get('guest/thanks', 'GuestController@thanks');
 Route::get('guest/vendors', 'GuestController@vendors');
