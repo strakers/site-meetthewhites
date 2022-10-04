@@ -216,7 +216,8 @@ class GuestController extends Controller
 
     public function getimages(){
         $rootPath = 'https://ik.imagekit.io/strakez';
-        $joinPath = $rootPath . '/thewhites/kbaptism/';
+        //$joinPath = $rootPath . '/thewhites/kbaptism/';
+        $joinPath = $rootPath . '/thewhites/360videos/';
         $imageKit = new ImageKit(
             config('imagekit.pubkey'),
             config('imagekit.privkey'),
@@ -225,16 +226,6 @@ class GuestController extends Controller
 
         $collection = [];
         $listFiles = $imageKit->listFiles();
-
-        foreach($listFiles->result as $res) {
-            $collection[] = (
-                //($rootPath . $res->filePath . '?ik-sdk-version=javascript-1.4.3&updatedAt=' . strtotime($res->updatedAt))
-                [
-                    'src' => ($rootPath . $res->filePath . '?ik-sdk-version=javascript-1.4.3&updatedAt=' . strtotime($res->updatedAt)),
-                    'orientation' => $res->height > $res->width ? 'vertical' : 'horizontal',
-                ]
-            );
-        }
 
         //return [1,2,3];
         return json_encode($listFiles);
