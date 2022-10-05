@@ -2,14 +2,14 @@
     {{-- <pre>
         {{ $json }}
     </pre> --}}
-    <div class="grid">
+    <div class="grid start">
         @foreach ($images as $image)
             @if ($image->fileType === 'image')
-                <div class="grid-item {{ $image->height > $image->width ? 'vertical' : 'horizontal' }}"
+                <div class="grid-item image {{ $image->height > $image->width ? 'vertical' : 'horizontal' }}"
                     data-name="{{ $image->name }}"
                     style="--img-width:{{ 301 }}; --img-height:{{ (301 * $image->height) / $image->width }};">
                     <img src="{{ sprintf('%s?ik-sdk-version=javascript-1.4.3&updatedAt=%s', $image->url, $image->updatedAt) }}&tr=w-300"
-                        alt="img" />
+                        alt="img" data-image="{{ $image->url }}" />
                 </div>
             @else
                 <div class="grid-item vertical video" data-name="{{ $image->name }}"
