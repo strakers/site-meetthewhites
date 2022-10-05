@@ -19,12 +19,17 @@ return [
             'link' => '/proposal'
         ],
 
-        /*[
+        [
+            'name' => 'recap',
+            'label' => 'Recap',
+            'link' => '/recap'
+        ],
+        /*
+        [
             'name' => 'rsvp',
             'label' => 'RSVP',
             'link' => '/rsvp'
-        ],
-        [
+        ],[
             'name' => 'venue',
             'label' => 'Venue',
             'link' => '/venue'
