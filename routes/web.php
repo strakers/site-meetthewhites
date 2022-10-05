@@ -24,7 +24,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-#Route::get('/guest', 'Auth\InviteAuthController@index');note
+#Route::get('/guest', 'Auth\InviteAuthController@index');
 Route::post('/guest', 'Auth\InviteAuthController@login');
 
 Route::group([ 'middleware' => 'auth' ], function($route){
@@ -69,20 +69,20 @@ Route::post('guest/share/comments', 'GuestController@shareComments')->name('shar
 Route::get('guest/share/media', 'GuestController@shareMedia');
 Route::get('guest/test', 'GuestController@testeroo');
 
-Route::group([ 'middleware' => 'App\Http\Middleware\InviteAuthenticated' ], function($route){
-    /*$route->get('guest', 'GuestController@welcome')->name('guest.login');
+/*Route::group([ 'middleware' => 'App\Http\Middleware\InviteAuthenticated' ], function($route){
+    $route->get('guest', 'GuestController@welcome')->name('guest.login');
     $route->get('guest/gallery', 'GuestController@gallery');
     $route->get('guest/proposal', 'GuestController@proposal');
     $route->get('guest/story', 'GuestController@story');
     $route->get('guest/crew', 'GuestController@crew');
     $route->get('guest/thanks', 'GuestController@thanks');
-    $route->get('guest/test', 'GuestController@testeroo');*/
+    $route->get('guest/test', 'GuestController@testeroo');
     #$route->get('guest/rsvp', 'GuestController@rsvp');
     #$route->post('guest/rsvp', 'GuestController@submitRSVP')->name('guest.rsvp');
     #$route->get('guest/rsvp', 'GuestController@rsvpClosed');
     #$route->get('guest/venue', 'GuestController@venue');
     #$route->get('guest/logout', 'GuestController@logout');
-});
+});*/
 
 Route::get('logout', 'Auth\LoginController@logout');
 

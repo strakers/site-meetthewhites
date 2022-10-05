@@ -28,16 +28,19 @@
                     fitWidth: true,
                 });
 
+                // set up image zoom on click functionality
                 Intense(grid.querySelectorAll('.grid-item.image img'));
+
+                // set up loading
                 grid.classList.remove('start');
                 grid.classList.add('loading');
 
-                console.log('setup media swap');
-                const mediaLinks = document.querySelectorAll('.media-swap');
-                mediaLinks.forEach(mediaLink => {
+                // add video thumbnail swap on click
+                document.querySelectorAll('.media-swap').forEach(mediaLink => {
                     mediaLink.addEventListener('click', swapMedia);
                 })
 
+                // load masonry grid layout
                 setTimeout(() => {
                     grid.classList.remove('loading');
                     grid.classList.remove('start');
@@ -46,6 +49,7 @@
             });
         })(2000);
 
+        // switches out thumbnail for video
         function swapMedia(e) {
             e.preventDefault();
             const el = e.target;
