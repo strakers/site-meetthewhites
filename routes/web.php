@@ -60,8 +60,8 @@ Route::get('guest/story', 'GuestController@story');
 Route::get('guest/crew', 'GuestController@crew');
 Route::get('guest/recap', 'GuestController@recap');
 Route::get('guest/events', 'GuestController@events');
-Route::get('guest/event/{event}', 'GuestController@event');
-Route::get('guest/imagekit', 'GuestController@getimages');
+Route::get('guest/event/{event}', 'GuestController@event')->name('event');
+//Route::get('guest/imagekit', 'GuestController@getimages'); // enable only when need to get new json from API, then cache/save as file
 Route::get('guest/thanks', 'GuestController@thanks');
 Route::get('guest/vendors', 'GuestController@vendors');
 Route::get('guest/share', 'GuestController@share');
