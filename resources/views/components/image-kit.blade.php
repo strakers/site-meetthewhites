@@ -17,8 +17,8 @@
                     </a>
                     <iframe src="{{ asset('images/gray.png') }}"
                         data-src="{{ $image->url . ($image->type === 'file' ? '?' : '&') . 'autoplay=true' }}"
-                        width="301" height="535" frameborder="0" allow="autoplay; fullscreen"
-                        allowfullscreen></iframe>
+                        width="301" height="535" frameborder="0" allow="autoplay; fullscreen" frameborder="0"
+                        webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 </div>
             @endif
         @endforeach
