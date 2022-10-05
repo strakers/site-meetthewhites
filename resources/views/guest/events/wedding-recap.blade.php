@@ -6,7 +6,6 @@ $slides = [
     'risquee' => ['/030_AD5I6819mk-min.jpg', '/033_AD5I6839mk31-min.jpg', '/060_AD5I6950mk-min.jpg', '/061_AD5I6954MK-min.jpg', '/113_AD5I8192mk-min.jpg', '/115_AD5I8195mk1-min.jpg'],
     'bloopers' => ['/001_AD5I6755mk-min.jpg', '/069_AD5I7001mk2-min.jpg', '/070_AD5I7009mk-min.jpg', '/103_AD5I8171mk2-min.jpg', '/105_AD5I8174mk3-min.jpg', '/106_AD5I8175mk2-min.jpg', '/107_AD5I8176mk-min.jpg', '/076_AD5I8034mk-min.jpg'],
 ];
-$page_extra = \App\Page::where('slug', 'recap')->first();
 @endphp
 
 
@@ -20,26 +19,6 @@ $page_extra = \App\Page::where('slug', 'recap')->first();
 @endsection
 
 @section('event')
-    <!-- recap video -->
-    <div class="bordered-wrapper first">
-        <div class="wide-container video">
-            <div class="embed">
-                <iframe src="https://player.vimeo.com/video/446983538?title=0&portrait=0&byline=0" width="640"
-                    height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-
-    <div class="bordered-wrapper first">
-        <div class="container pull-down push-down">
-            <div class="content basket bordered">
-                {!! $page_extra ? $page_extra->content('recap_dialog')->content : '' !!}
-                <div></div>
-            </div>
-        </div>
-        <br class="clearfix" />
-    </div>
-
     <!-- first gallery: main -->
     <div class="container slider carousel main-gallery pull-down push-down">
         <?php $x = 0; foreach($slides['main'] as $slide): ?>
