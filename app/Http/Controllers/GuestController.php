@@ -215,19 +215,23 @@ class GuestController extends Controller
     }
 
     public function getimages(){
+        // set path vars
         $rootPath = 'https://ik.imagekit.io/strakez';
-        //$joinPath = $rootPath . '/thewhites/kbaptism/';
-        $joinPath = $rootPath . '/thewhites/360videos/';
+        $folderPath = '/thewhites/kbaptism/';
+
+        // connect to CDN
         $imageKit = new ImageKit(
             config('imagekit.pubkey'),
             config('imagekit.privkey'),
-            $joinPath
+            $rootPath
         );
 
-        $collection = [];
-        $listFiles = $imageKit->listFiles();
+        // get media files from CDN (from specified folder)
+        $listFiles = $imageKit->listFiles([
+            'path' => $folderPath,
+        ]);
 
-        //return [1,2,3];
+        // return json response
         return json_encode($listFiles);
     }
 
