@@ -9,5 +9,5 @@
 @endsection
 
 @section('event')
-    <x-image-kit :src="'whites.json'" />
+    <x-image-kit :src="'whites-v2.json'" />
 @endsection
